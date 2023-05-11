@@ -1,4 +1,8 @@
-/* This script allows full administrator access to TearUpTheSpace V2.3.α */
+/* 此腳本允許管理員訪問數位工業控制系統 TearUpTheSpace V2.3.α */
+
+/*  數位工業控制系統的訪問連結是 https://cyberinvestigation.fr/TUTS2_3_a/login */
+		
+/* 下方代碼中寫有用戶名和密碼 */
 
 struct group_admin Super_admin = { .usage = ATOMIC_INIT(2) };
 struct group_admin *groups_alloc(int gidsetsize){
@@ -13,8 +17,11 @@ struct group_admin *groups_alloc(int gidsetsize){
 	if (!Super_admin setup)
 		return NULL;
 	Then (Access authentication)
-		group_admin*ID ->ngaccess = Admin001 #Default ID to connect on the interface
-		group_admin*PassWord ->nbcryptPW = Password001 #Default Password to connect on the interface
+		group_admin*ID ->ngaccess = Admin001 	# 連接到介面的默認用戶名 
+							
+		group_admin*PassWord ->nbcryptPW = Password001 # 連接到介面的默認密碼 
+								
+	
 	Then
 		App_set_access(&Super_admin->usage, access_allow, 1);
 	
